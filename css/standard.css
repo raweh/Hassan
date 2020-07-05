@@ -1,0 +1,284 @@
+/* Stylesheet für Selfhtml Design 02    Akzentfarbe ist #8db243
+  responsives Layout mit Flexbox ab Z. 248   */
+
+/* ====================================================   GLOBAL DEFINITION   ==================================================== */
+
+/* alternatives Boxmodell */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font: normal 1em Arial, sans-serif;
+  /* Keine Mindestschriftgröße! Dies wird dem Browser, bzw. dem Nutzer überlassen! */
+  color: #333;
+}
+
+
+/* ====================================================   HEADER   ==================================================== */
+
+.banner {
+  background: url("../img/Design02.svg") no-repeat right,
+  #000 repeating-linear-gradient(-45deg, black, #151515 8em);
+  background-size: contain, auto;
+  padding: 0 0 0.5em; /*Abstand Banner von unten mit Texte*/ 
+
+}
+
+@media screen and (max-width: 40em) {
+  /* Normalerweise werden solche responsiven Layout-Einstellungen gesondert am Schluss notiert. Hier sollen die mulitple backgrounds aber gleich anfangs gezeigt werden. Auf zu kleinen Bildschirmen wird das Bild jedoch ausgeblendet.  */
+  .banner {
+    background-image: none;
+  }
+}
+
+.banner h1, .banner p{
+  max-width: 60em;
+  margin: 0 auto;
+  padding-left: 10%;
+  font-family: 'Roboto', sans-serif;
+  font-variant: small-caps;
+  font-weight: lighter;
+  font-size: 2em;
+  color: #eee;
+}
+
+.banner p {
+  padding: 1em 10%;
+  color: white;
+}
+
+/*.banner img {*/
+ /* float: right;*/
+ /* height: 15em;*/
+/*}*/
+
+
+/* ====================================================  NAV   ==================================================== */
+
+nav {
+  max-width: 30em;/*  */
+  margin: 0 auto; /*mittig auf der seite, Centering*/
+}
+nav ul {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none; /*nimmt die Punkten vor die liste weg, list-style-type Property*/
+}
+nav a {
+  background: transparent;
+  color: white;
+  text-decoration: none;
+  display: inline-block;/*in block schreiben farbe #8db243*/
+  padding: 1em 0 1em 1em;
+  border-radius: .5em;
+  width: 95%;/*  */
+  margin: 0 5%;/*  */
+}
+nav a:hover,
+nav a:focus {
+  background: #28729a;
+  color: white;
+}
+nav a:hover::after,
+nav a:focus::after {
+  color: transparent;
+}
+
+
+nav li {
+  margin:  0;
+  flex: 1;
+}
+
+
+[aria-current=page] {
+  color: black;
+  font-weight: bold;
+}
+
+[aria-current=page]:hover,
+[aria-current=page]:focus {
+  color: black;
+}
+[aria-current=page] {
+  color: #28729a;
+}
+/* ===================== STYLE SWITCHER ============================= */
+
+#styleswitcher {
+  max-width: 60em;
+  margin: 0 auto;
+}
+
+#styleswitcher li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+#styleswitcher button {
+  border: 1px solid transparent;
+  border-radius: 0.2em;
+  color: white;
+  width: 4.5em;
+  text-align: center;
+}
+[BcolorChange="./css/violet.css"] {
+  background: #9357b9;
+}
+
+[BcolorChange="./css/standard.css"] {
+  background: #28729a;
+}
+
+[BcolorChange="./css/green.css"] {
+  background: #8db243;
+  color: black;
+}
+#styleswitcher button[BcolorChange="./css/yellow.css"] {
+  background: #dfac20;
+  color: black;  
+}
+[BcolorChange="./css/orange.css"] {
+  background: #df6c20;
+}
+
+[BcolorChange="./css/red.css"] {
+  background: #c32e04;
+}
+
+#styleswitcher button:hover,
+#styleswitcher button:focus {
+  font-weight: bold;
+  border: 1px solid white;
+}
+
+
+/* ==================================== content ===========================  */
+
+a,
+.akzentfarbe1 {
+  color: #28729a;
+}
+
+.akzentfarbe2 {
+  color: #ccc;
+}
+
+h1,
+h2 {
+  color: currentColor;
+  font-size: 1.50em;
+  font-weight: normal;
+  font-family: 'Tauri', serif;
+  text-transform: uppercase;/*Gross schreiben */
+}
+.smallteaser {
+  background: #eee;
+  padding: 0.5em;
+}
+.smallteaser h2 {
+  display: flex;
+  /*background-color: red; zum lernen*/
+  color: #333;
+  border-bottom: 2px solid #28729a;
+  align-items: flex-end;
+}
+.smallteaser h2 img {
+  margin-left: auto;/*how Margins Work in Flexbox*/
+}
+.bigteaser > img { /*child selector*/
+  float: right;
+  margin: .5em;
+  width: 2.5em;
+}
+
+.smallteaser  .heeed {
+  border-bottom: 1px #D1D1D1 solid; 
+}
+
+a.more {
+  float: right;
+  padding: .25em 0.5em;
+  margin-top: 1em;
+  background: #28729a;
+  color: white;
+}
+
+a.more:hover,
+a.more:focus {
+  background-color: #909090;
+}
+
+
+.bigteaser {
+  background: #28729a;
+  padding: 0.5em;
+  color: #FFFFFF;
+}
+
+
+
+.bigteaser a {
+  color: white;
+}
+
+.bigteaser a.more {
+  background: white;
+  color: #28729a;
+}
+/* ==================================== footer ===========================  */
+
+footer {
+  background: #666 repeating-linear-gradient(-45deg, black, #151515 8em);
+  padding: 0.5em 1em 0;
+  margin-top: 1em;
+  color: white;
+}
+
+footer > * {
+  flex:  1 1 20em;
+  
+}
+
+footer .branding {
+  text-align: right;
+}
+
+/* ====================================================   LAYOUT   ==================================================== */
+
+/* Mobile first ! alle Blöcke haben 100%, Navigation unten*/
+
+.main {
+  max-width: 65em;
+  margin: 0 auto;
+  padding: 1em 0;
+}
+
+
+
+.main  {
+  display: flex;
+  flex-flow: row wrap;
+  
+}
+.main > * {  /*=.main >.smallteaser ,.bigteaser{}*/
+  flex: 1 1 18em;/*= felx-grow 1 flex-shrink 1 flex-basis 18*/
+  margin: 1em;
+}
+.main,
+footer {
+  display: flex;
+  flex-flow: row wrap; /*flex-flow (Kurzschrift für flex-direction und flex-wrap)*/
+}
